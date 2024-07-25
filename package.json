@@ -1,5 +1,6 @@
 {
-    "homepage": "https://dmn-sohan.github.io/AuthGen-Frontend",
+    "homepage": "https://dmn-sohan.github.io/AuthGen-Frontend/",
+    "private": true,
     "name": "AuthGen",
     "dependencies": {
         "@emotion/react": "^11.11.4",
