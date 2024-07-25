@@ -20,12 +20,12 @@ export default () => (
     <Router>
         <GlobalStyles />
         <Switch>
-        	<Route exact path='/' component={Index}/>
-			<Route exact path='/index' component={Index}/>
-			<Route exact path='/client-login' component={ClientLogin}/>
-			<Route exact path='/client-encode-image' component={ClientEncodeImage}/>
-			<Route exact path='/customer-decode-image' component={CustomerDecodeImage}/>
-            <Route exact path='/privacy-policy' component={privacyPolicy}/>
+        	<Route exact path='/AuthGen-Frontend' component={Index}/>
+			<Route exact path='/AuthGen-Frontend/home' component={Index}/>
+			<Route exact path='/AuthGen-Frontend/client-login' component={ClientLogin}/>
+			<Route exact path='/AuthGen-Frontend/client-encode-image' component={ClientEncodeImage}/>
+			<Route exact path='/AuthGen-Frontend/customer-decode-image' component={CustomerDecodeImage}/>
+            <Route exact path='/AuthGen-Frontend/privacy-policy' component={privacyPolicy}/>
 			<Route component={Page404}/>
         </Switch>
     </Router>

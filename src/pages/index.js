@@ -189,7 +189,7 @@ export default (() => {
 			>
 				<Link
 					border-radius="8px"
-					href="/client-login"
+					href="/AuthGen-Frontend/client-login"
 					text-decoration-line="initial"
 					border-style="solid"
 					sm-padding="5px 10px 5px 10px"
@@ -212,7 +212,7 @@ export default (() => {
 					background="#1A1B41"
 					border-radius="8px"
 					md-margin="0px 0px 0px 14px"
-					href="/client-login"
+					href="/AuthGen-Frontend/client-login"
 					color="#ffffff"
 					padding="6px 12px 7px 12px"
 					md-order="1"
@@ -385,7 +385,7 @@ export default (() => {
 					Our setup takes less than 2 minutes.{" "}
 				</Text>
 				<Link
-					href="/client-login"
+					href="/AuthGen-Frontend/client-login"
 					text-decoration-line="initial"
 					color="--light"
 					font="--lead"

@@ -48,9 +48,7 @@ export default (() => {
 		sessionStorage.setItem('name', email)
 		// sessionStorage.setItem('secret', response["response"]["secret"]);
 		sessionStorage.setItem('isLoggedIn', true);
-		window.location.href = '/client-encode-image';
-
-
+		window.location.href = '/AuthGen-Frontend/client-encode-image';
 
 	}
 
@@ -91,7 +89,7 @@ export default (() => {
 		else{
 			sessionStorage.setItem('name', company_name);
 			sessionStorage.setItem('isLoggedIn', true);
-			window.location.href = '/client-encode-image';
+			window.location.href = '/AuthGen-Frontend/client-encode-image';
 		}
 
 	}

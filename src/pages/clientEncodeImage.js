@@ -360,7 +360,7 @@ export default (() => {
 	}
 	else{
 		set_isLoggedIn(sessionStorage.getItem('isLoggedIn'));
-		window.location.href = '/client-login';
+		window.location.href = '/AuthGen-Frontend/client-login';
 		return ;
 	}
 

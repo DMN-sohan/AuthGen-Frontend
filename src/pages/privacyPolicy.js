@@ -111,7 +111,7 @@ export default (() => {
 					padding="12px 24px 12px 24px"
 					background="#1A1B41"
 					border-radius="8px"
-					href="/client-login"
+					href="/AuthGen-Frontend/client-login"
 					text-decoration-line="initial"
 					color="--light"
 				>
