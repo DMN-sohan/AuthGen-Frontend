@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import theme from "theme";
-import { Theme, Image, Text, LinkBox, Box, Section, Button, Input } from "@quarkly/widgets";
+import { Theme, Image, Text, LinkBox, Box, Section, Button } from "@quarkly/widgets";
 import { GlobalQuarklyPageStyles } from "global-page-styles";
 import { RawHtml, Override } from "@quarkly/components";
 import * as Components from "components";
@@ -13,7 +13,7 @@ export default (() => {
 
 
 	const [isLoggedIn,set_isLoggedIn] = useState(sessionStorage.getItem('isLoggedIn'));
-	const [name,setName] = useState(sessionStorage.getItem('name'));
+	const name = sessionStorage.getItem('name');
 
 	const fileTypes = ["JPEG", "PNG", "JPG"];
 
@@ -29,7 +29,7 @@ export default (() => {
 
 		const formData = new FormData();
 		formData.append('file', File);
-		formData.append('secret',document.getElementById("secret").value);
+		formData.append('secret',sessionStorage.getItem('secret'));
 
 		try {
 			setLoading(true);
@@ -291,7 +291,7 @@ export default (() => {
 
 		{File &&
 		<>
-							<Box
+							{/* <Box
 							min-width="10px"
 							min-height="10px"
 							margin="0px 15px 0px 0px"
@@ -317,7 +317,7 @@ export default (() => {
 								id="secret"
 								placeholder = "Secret"
 							/>
-						</Box>
+						</Box> */}
 							<Button padding="11px 24px 11px 24px"
 								font="normal 400 20px/1.5 --fontFamily-sans"
 								sm-margin="10px 0px 0px 0px"

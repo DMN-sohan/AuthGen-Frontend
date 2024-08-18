@@ -59,13 +59,13 @@ export default (() => {
 
 				if(success){
 					var code = response["code"]
-					// var all_data = await fetch('http://127.0.0.1:8000/all',{
-					// method : 'GET'
-					// });
+					var all_data = await fetch('http://127.0.0.1:5000/all',{
+					method : 'GET'
+					});
 
-					// all_data = await all_data.json();
-					// var result = findMostSimilarElement(all_data["response"],code)[0];
-
+					all_data = await all_data.json();
+					var result = findMostSimilarElement(all_data["response"],code)[0];
+					console.log(result);
 					const element = <Box
 						padding="35px 25px 35px 25px"
 						lg-padding="45px 30px"
@@ -77,8 +77,17 @@ export default (() => {
 						display="flex"
 						max-width = "50vh"
 					>
-						<Text margin="0px 0px 10px 0px" color="#1A1B41" font="--headline3" lg-text-align="center">
-							Secret : {code}
+						<Text margin="0px 0px 18px 0px" color="#1A1B41" font="--headline3" lg-text-align="center">
+							{result}
+						</Text>
+						<Text
+							margin="0px 0px 0px 0px"
+							color="--greyD3"
+							font="--base"
+							lg-text-align="center"
+							flex="1 0 auto"
+						>
+							This is a genuine product by <b>{result}</b>, a valued partner of AuthGen.
 						</Text>
 					</Box>;
 					setLoading(false);

@@ -30,27 +30,38 @@ export default (() => {
 			var email_box = document.getElementById("login-email");
 			var password_box = document.getElementById("login-password");
 
-		// 	var response = await fetch('http://127.0.0.1:8000/login', {
-		// 			method: 'POST',
-		// 			headers: {
-		// 					'Content-Type': 'application/json',
-		// 			},
-		// 			body: JSON.stringify({
-		// 					email: email,
-		// 					password: password,
-		// 			}),
-		// 	})
+			var response = await fetch('http://127.0.0.1:5000/login', {
+					method: 'POST',
+					headers: {
+							'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+							email: email,
+							password: password,
+					}),
+			})
 
-		// response = await response.json();
-		// console.log(response);
+		response = await response.json();
 
-
-		sessionStorage.setItem('name', email)
-		// sessionStorage.setItem('secret', response["response"]["secret"]);
-		sessionStorage.setItem('isLoggedIn', true);
-		window.location.href = '/client-encode-image';
-
-
+		if(response["message"] === "Invalid username"){
+			email_box.style["border-color"] = "red";
+			password_box.style["border-color"] = "#E4E8EC";
+			setErrormsg("Invalid username");
+			setOpen(true);
+		}
+		else if(response["message"] === "Invalid password"){
+			email_box.style["border-color"] = "#E4E8EC";
+			password_box.style["border-color"] = "red";
+			setErrormsg("Invalid password");
+			setOpen(true);
+		}
+		else{
+			console.log(response["message"]);
+			sessionStorage.setItem('name', response["response"][0][3])
+			sessionStorage.setItem('secret', response["response"][0][4]);
+			sessionStorage.setItem('isLoggedIn', true);
+			window.location.href = '/client-encode-image';
+		}
 
 	}
 
@@ -65,27 +76,34 @@ export default (() => {
 			var password_box = document.getElementById("signup-password");
 			var retype_password_box = document.getElementById("signup-retype-password");
 
-		// 	var response = await fetch('http://127.0.0.1:8000/signup', {
-		// 			method: 'POST',
-		// 			headers: {
-		// 					'Content-Type': 'application/json',
-		// 			},
-		// 			body: JSON.stringify({
-		// 					email: email,
-		// 					password: password,
-		// 					retype_password : retype_password,
-		// 					company_name : company_name
-		// 			}),
-		// 	})
+			var response = await fetch('http://127.0.0.1:5000/signup', {
+					method: 'POST',
+					headers: {
+							'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+							email: email,
+							password: password,
+							retype_password : retype_password,
+							company_name : company_name
+					}),
+			})
 
-		// response = await response.json();
-		// console.log(response);
+		response = await response.json();
+		console.log(response);
 
-		if(password !== retype_password){
+		if(response["message"] === "Passwords do not match"){
 			email_box.style["border-color"] = "#E4E8EC";
 			password_box.style["border-color"] = "red";
 			retype_password_box.style["border-color"] = "red";
 			setErrormsg("Passwords do not match");
+			setOpen(true);
+		}
+		else if(response["message"] === "Email exists"){
+			email_box.style["border-color"] = "red";
+			password_box.style["border-color"] = "#E4E8EC";
+			retype_password_box.style["border-color"] = "#E4E8EC";
+			setErrormsg("Email already exists");
 			setOpen(true);
 		}
 		else{
@@ -273,9 +291,9 @@ export default (() => {
 					>
 						Ready to redefine authenticity?
 					</Text>
-					<Text margin="0px 5px 0px 0px" font="normal 400 18px/1.5 --fontFamily-sansHelvetica">
+					{/* <Text margin="0px 5px 0px 0px" font="normal 400 18px/1.5 --fontFamily-sansHelvetica">
 						Enter your details to get started <br /><i>* dummy login</i>
-					</Text>
+					</Text> */}
 					<Text margin="0px 50% 50px 0px" font="normal 300 16px/1.5 --fontFamily-sansHelvetica" lg-margin="0px 0 50px 0px" />
 				</Box>
 				<Box
